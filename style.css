@@ -76,7 +76,6 @@ header { position: sticky; top: 0; z-index: 100; background: var(--bg-primary); 
     font-size: 8rem; 
     color: var(--accent); 
     opacity: 1; 
-    animation: float 6s ease-in-out infinite;
     position: relative;
     z-index: 1;
 }
@@ -90,7 +89,6 @@ header { position: sticky; top: 0; z-index: 100; background: var(--bg-primary); 
     object-fit: cover;
     border: 5px solid var(--accent);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    animation: float 6s ease-in-out infinite;
 }
 
 /* --- Sections --- */

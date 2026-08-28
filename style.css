@@ -48,8 +48,17 @@ header { position: sticky; top: 0; z-index: 100; background: var(--bg-primary); 
 .theme-toggle { display: block; }
 
 /* --- Hero Section --- */
-.hero { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem; display: flex; align-items: center; justify-content: space-between; min-height: 80vh; }
-.hero-content { max-width: 600px; }
+.hero { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 6rem 2rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    min-height: 80vh; 
+    position: relative;
+}
+.hero-content { max-width: 600px; z-index: 2; }
 .greeting { color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
 .name { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem; }
 .typing-container { font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 1rem; min-height: 2rem; }
@@ -63,8 +72,26 @@ header { position: sticky; top: 0; z-index: 100; background: var(--bg-primary); 
 .btn-secondary { border: 2px solid var(--accent); color: var(--accent); }
 .btn-secondary:hover { background: var(--accent); color: white; transform: translateY(-2px); }
 
-.hero-visual { font-size: 8rem; color: var(--accent); opacity: 1; animation: float 6s ease-in-out infinite; }
+.hero-visual { 
+    font-size: 8rem; 
+    color: var(--accent); 
+    opacity: 1; 
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+/* Profile Image Styling */
+.profile-img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--accent);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: float 6s ease-in-out infinite;
+}
 
 /* --- Sections --- */
 .section { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
@@ -116,56 +143,62 @@ footer p { color: var(--text-secondary); margin-bottom: 2rem; }
 .social-links a:hover { color: var(--accent); transform: translateY(-3px); }
 .copyright { font-size: 0.9rem; margin-top: 2rem; }
 
-/* --- Responsive Mobile Fix --- */
+/* --- Responsive Mobile --- */
 @media (max-width: 768px) {
-    /* Navbar fixes */
     .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-primary); flex-direction: column; padding: 1rem; text-align: center; border-bottom: 1px solid var(--bg-secondary); }
     .nav-links.active { display: flex; }
     .hamburger { display: block; }
     
-    /* Hero Section Layout Fix */
+    /* Hero Section - Mobile Fix */
     .hero { 
-        flex-direction: column; 
-        text-align: center; 
-        padding: 3rem 1rem; 
-        min-height: auto; /* This removes the huge gap! */
-        gap: 2rem;
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: auto !important;
+        padding: 2rem 1rem !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 1.5rem !important;
     }
     
-    /* Ensure Text comes first, Image comes second */
-    .hero-content { order: 1; }
+    .hero-content { 
+        width: 100% !important;
+        max-width: 100% !important;
+        order: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        margin-bottom: 0 !important;
+    }
+    
     .hero-visual { 
-        order: 2; 
-        display: flex !important; /* Forces the image container to show */
-        justify-content: center; 
-        margin-top: 0;
+        order: 2 !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        position: static !important;
+        float: none !important;
     }
     
-    .name { font-size: 2.5rem; }
-    .hero-buttons { justify-content: center; flex-wrap: wrap; }
-    
-    /* Make image smaller so it fits perfectly on mobile */
     .profile-img {
         width: 200px !important;
         height: 200px !important;
-        opacity: 1 !important; /* Forces the photo to be fully visible */
+        opacity: 1 !important;
+        position: static !important;
+        margin: 0 auto !important;
         display: block !important;
     }
+    
+    .hero-buttons {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+        margin-top: 1rem !important;
+        width: 100% !important;
+        flex-wrap: wrap;
+    }
+    
+    .name { font-size: 2.5rem; }
+    .typing-container { justify-content: center; }
 }
-   /* Profile Image Styling */
-   .profile-img {
-       width: 350px;
-       height: 350px;
-       border-radius: 50%;
-       object-fit: cover;
-       border: 5px solid var(--accent);
-       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-       animation: float 6s ease-in-out infinite;
-   }
-
-   @media (max-width: 768px) {
-       .profile-img {
-           width: 250px;
-           height: 250px;
-       }
-   }

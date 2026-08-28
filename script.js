@@ -23,10 +23,7 @@ function updateThemeIcon(theme) {
 // --- Typing Effect ---
 const typingText = document.getElementById('typing-text');
 const phrases = [
-    "Aerospace Engineering Undergrad",
-    "UAV & Structural Design Enthusiast",
-    "Python & C++ Developer",
-    "Financial Market Observer"
+    "Aerospace Engineering Undergrad"
 ];
 let phraseIndex = 0;
 let charIndex = 0;

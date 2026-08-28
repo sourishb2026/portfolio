@@ -116,15 +116,41 @@ footer p { color: var(--text-secondary); margin-bottom: 2rem; }
 .social-links a:hover { color: var(--accent); transform: translateY(-3px); }
 .copyright { font-size: 0.9rem; margin-top: 2rem; }
 
-/* --- Responsive --- */
+/* --- Responsive Mobile Fix --- */
 @media (max-width: 768px) {
+    /* Navbar fixes */
     .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-primary); flex-direction: column; padding: 1rem; text-align: center; border-bottom: 1px solid var(--bg-secondary); }
     .nav-links.active { display: flex; }
     .hamburger { display: block; }
-    .hero { flex-direction: column; text-align: center; padding-top: 3rem; }
-    .hero-visual { margin-top: 2rem; display: flex; justify-content: center; }
+    
+    /* Hero Section Layout Fix */
+    .hero { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 3rem 1rem; 
+        min-height: auto; /* This removes the huge gap! */
+        gap: 2rem;
+    }
+    
+    /* Ensure Text comes first, Image comes second */
+    .hero-content { order: 1; }
+    .hero-visual { 
+        order: 2; 
+        display: flex !important; /* Forces the image container to show */
+        justify-content: center; 
+        margin-top: 0;
+    }
+    
     .name { font-size: 2.5rem; }
-    .hero-buttons { justify-content: center; }
+    .hero-buttons { justify-content: center; flex-wrap: wrap; }
+    
+    /* Make image smaller so it fits perfectly on mobile */
+    .profile-img {
+        width: 200px !important;
+        height: 200px !important;
+        opacity: 1 !important; /* Forces the photo to be fully visible */
+        display: block !important;
+    }
 }
    /* Profile Image Styling */
    .profile-img {
